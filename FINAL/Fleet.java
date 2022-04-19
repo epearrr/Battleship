@@ -7,15 +7,26 @@ public class Fleet {
     private Ship sub;
     private Ship destroyer;
 
-    public Fleet(Ship battleShip, Ship aircraftCarrier, Ship cruiser, Ship sub, Ship destroyer) {
-        this.battleShip = battleShip;
+    /**
+     * constructor to initialize the instance variables
+     * @param aircraftCarrier
+     * @param battleShip
+     * @param cruiser
+     * @param destroyer
+     * @param sub
+     */
+    public Fleet(Ship aircraftCarrier, Ship battleShip, Ship cruiser, Ship destroyer, Ship sub) {
         this.aircraftCarrier = aircraftCarrier;
+        this.battleShip = battleShip;
         this.cruiser = cruiser;
-        this.sub = sub;
         this.destroyer = destroyer;
+        this.sub = sub;
     }
 
-    public boolean updateFleet(ShipType shipType){
-        
+    public boolean updateFleet(ShipType st){
+        if(st == ShipType.ST_AIRCRAFT_CARRIER){
+            System.out.println("success");
+        }
+        return false;
     }
 }
