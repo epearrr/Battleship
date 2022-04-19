@@ -1,26 +1,21 @@
 package FINAL;
 
 public class Fleet {
-    private Ship battleShip;
     private Ship aircraftCarrier;
+    private Ship battleship;
     private Ship cruiser;
-    private Ship sub;
     private Ship destroyer;
+    private Ship sub;
 
     /**
      * constructor to initialize the instance variables
-     * @param aircraftCarrier
-     * @param battleShip
-     * @param cruiser
-     * @param destroyer
-     * @param sub
      */
-    public Fleet(Ship aircraftCarrier, Ship battleShip, Ship cruiser, Ship destroyer, Ship sub) {
-        this.aircraftCarrier = aircraftCarrier;
-        this.battleShip = battleShip;
-        this.cruiser = cruiser;
-        this.destroyer = destroyer;
-        this.sub = sub;
+    public Fleet() {
+        aircraftCarrier = new AircraftCarrier();
+        battleship = new Battleship();
+        cruiser = new Cruiser();
+        destroyer = new Destroyer();
+        sub = new Sub();
     }
 
     /**
@@ -33,7 +28,7 @@ public class Fleet {
             return aircraftCarrier.hit();
         }
         else if(st == ShipType.ST_BATTLESHIP){
-            return battleShip.hit();
+            return battleship.hit();
         }
         else if(st == ShipType.ST_CRUISER){
             return cruiser.hit();
@@ -51,6 +46,6 @@ public class Fleet {
      * @return true if all ships have been sunk
      */
     public boolean gameOver(){
-        return aircraftCarrier.getSunk() && battleShip.getSunk() && cruiser.getSunk() && destroyer.getSunk() && sub.getSunk();
+        return aircraftCarrier.getSunk() && battleship.getSunk() && cruiser.getSunk() && destroyer.getSunk() && sub.getSunk();
     }
 }
