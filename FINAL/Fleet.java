@@ -23,6 +23,11 @@ public class Fleet {
         this.sub = sub;
     }
 
+    /**
+     * method that is called when a given shiptype is hit. the ship's hit method will be called, which increments the number of times the ship has been been hit
+     * @param st shiptype
+     * @return true if the given ship had been sunk
+     */
     public boolean updateFleet(ShipType st){
         if(st == ShipType.ST_AIRCRAFT_CARRIER){
             return aircraftCarrier.hit();
@@ -40,5 +45,12 @@ public class Fleet {
             return sub.hit();
         }
         return false;
+    }
+
+    /**
+     * @return true if all ships have been sunk
+     */
+    public boolean gameOver(){
+        return aircraftCarrier.getSunk() && battleShip.getSunk() && cruiser.getSunk() && destroyer.getSunk() && sub.getSunk();
     }
 }
