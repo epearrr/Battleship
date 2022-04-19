@@ -14,6 +14,10 @@ public class AAA {
 
         Fleet f = new Fleet(a,b,c,d,s);
 
-        f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER);
+        System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
+        System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
+        System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
+        System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
+        System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
     }
 }

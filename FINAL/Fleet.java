@@ -25,7 +25,19 @@ public class Fleet {
 
     public boolean updateFleet(ShipType st){
         if(st == ShipType.ST_AIRCRAFT_CARRIER){
-            System.out.println("success");
+            return aircraftCarrier.hit();
+        }
+        else if(st == ShipType.ST_BATTLESHIP){
+            return battleShip.hit();
+        }
+        else if(st == ShipType.ST_CRUISER){
+            return cruiser.hit();
+        }
+        else if(st == ShipType.ST_DESTROYER){
+            return destroyer.hit();
+        }
+        else if(st == ShipType.ST_SUB){
+            return sub.hit();
         }
         return false;
     }
