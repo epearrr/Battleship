@@ -12,21 +12,18 @@ public class AAA {
         // Destroyer d = new Destroyer();
         // Sub s = new Sub();
 
-        // Fleet f = new Fleet(a,b,c,d,s);
-        Fleet f = new Fleet();
-        System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
-        System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
-        System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
-        System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
-        System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
+        // Fleet f = new Fleet();
+        // System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
+        // System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
+        // System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
+        // System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
+        // System.out.println(f.updateFleet(ShipType.ST_AIRCRAFT_CARRIER));
 
         // Move m = new Move(2,6);
         // System.out.println(m.col());
         // System.out.println(m.row());
         // System.out.println(m);
 
-        Board b = new Board("tset");
-        
-        Board b2 = new Board("tset");
+        Board b = new Board("UserBoard.txt");
     }
 }
