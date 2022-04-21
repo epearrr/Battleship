@@ -1,7 +1,6 @@
 package FINAL;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.io.*;
 
@@ -52,7 +51,6 @@ public class Board {
                 // if the ship is horizontal
                 if(m1.row() == m2.row()){
                     for(int i=m1.col(); i<=m2.col(); i++){
-                        // layout.get(i).set(m1.row(), status);
                         layout.get(m1.row()).set(i, status);
                     }
                 }
@@ -60,7 +58,6 @@ public class Board {
                 // if the ship is vertical
                 if(m1.col() == m2.col()){
                     for(int i=m1.row(); i<=m2.row(); i++){
-                        // layout.get(m1.col()).set(i, status);
                         layout.get(i).set(m1.col(), status);
                         
                     }
