@@ -9,6 +9,10 @@ public class Board {
     private Fleet fleet;
     public static final int SIZE = 100;
 
+    /**
+     * Constructor that initialies the layout by setting all cells to CellStatus.NOTHING, gets information from a file and adds ships to the layout, and initializes fleet
+     * @param fileName
+     */
     public Board(String fileName){
         String fileLoc = "FINAL/" + fileName;
         layout = new ArrayList<>();
@@ -22,8 +26,10 @@ public class Board {
             layout.add(rowList);
         }
         
+        // try to read the Board file. if the file wasn't found, the exception will be caught and the program will stop
         try{
-            Scanner fileScanner = new Scanner(new File(fileLoc));    
+            Scanner fileScanner = new Scanner(new File(fileLoc));   
+            // read all moves from the file 
             while(fileScanner.hasNext()){
                 String moveLine = fileScanner.nextLine();
                 String[] moveSplit = moveLine.split(" ");
@@ -48,18 +54,17 @@ public class Board {
                     break;
                 }
 
-                // if the ship is horizontal
+                // if the ship is placed horizontally
                 if(m1.row() == m2.row()){
                     for(int i=m1.col(); i<=m2.col(); i++){
                         layout.get(m1.row()).set(i, status);
                     }
                 }
 
-                // if the ship is vertical
+                // if the ship is placaed vertically
                 if(m1.col() == m2.col()){
                     for(int i=m1.row(); i<=m2.row(); i++){
                         layout.get(i).set(m1.col(), status);
-                        
                     }
                 }
             }       
@@ -71,6 +76,11 @@ public class Board {
         fleet = new Fleet();
     }
 
+    /**
+     * method to update the layout when given a move
+     * @param move
+     * @return the original status of the targeted cell
+     */
     public CellStatus applyMoveToLayout(Move move){
         CellStatus cell = layout.get(move.row()).get(move.col());
 
@@ -91,9 +101,15 @@ public class Board {
         return cell;
     }
 
+    /**
+     * method that determines if a cell is available for a move
+     * @param move
+     * @return true/false depending on whether a spot is available
+     */
     public boolean moveAvailable(Move move){
         CellStatus cell = layout.get(move.row()).get(move.col());
         
+        // the following are all acceptable cells choices, so if any are true, true will be returned
         return 
         cell.equals(CellStatus.NOTHING) ||
         cell.equals(CellStatus.AIRCRAFT_CARRIER) ||
@@ -103,14 +119,23 @@ public class Board {
         cell.equals(CellStatus.SUB);
     }
 
+    /**
+     * @return layout
+     */
     public ArrayList<ArrayList<CellStatus>> getLayout(){
         return layout;
     }
 
+    /**
+     * @return fleet
+     */
     public Fleet getFleet(){
         return fleet;
     }
 
+    /**
+     * @return true if all ships have sank
+     */
     public boolean gameOver(){
         return fleet.gameOver();
     }
