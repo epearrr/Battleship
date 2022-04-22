@@ -1,8 +1,12 @@
 package FINAL;
 
+import java.util.Scanner;
+import java.util.ArrayList;
 // tester
 public class AAA {
     public static void main(String[] args) {
+        Scanner kb = new Scanner(System.in);
+
         // CellStatus cs = CellStatus.SUB_HIT;
         // System.out.println(cs);
 
@@ -25,5 +29,17 @@ public class AAA {
         // System.out.println(m);
 
         Board b = new Board("UserBoard.txt");
+
+        ArrayList<ArrayList<CellStatus>> layout = b.getLayout();
+        while(true){
+            // print board layout
+            for(ArrayList<CellStatus> s : layout){
+                System.out.println(s);
+            }
+
+            System.out.print("Cell: ");
+            String move = kb.nextLine();
+            System.out.println(b.applyMoveToLayout(new Move(move)));
+        }
     }
 }

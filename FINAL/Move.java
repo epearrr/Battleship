@@ -19,8 +19,14 @@ public class Move {
      * @param s
      */
     public Move(String s){
-        col = (int) s.charAt(0) - 65;
-        row = Integer.parseInt(s.substring(1)) - 1;
+        try{
+            col = (int) s.charAt(0) - 65;
+            row = Integer.parseInt(s.substring(1)) - 1;  
+        }
+        catch(NumberFormatException e){
+            System.out.println("NumberFormatException: s is " + s);
+            System.exit(1);
+        }
     }
 
     /**
