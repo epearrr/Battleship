@@ -83,20 +83,21 @@ public class Board {
      */
     public CellStatus applyMoveToLayout(Move move){
         CellStatus cell = layout.get(move.row()).get(move.col());
-
-        switch(cell){
-            case AIRCRAFT_CARRIER: layout.get(move.row()).set(move.col(), CellStatus.AIRCRAFT_CARRIER_HIT);
-            break;
-            case BATTLESHIP: layout.get(move.row()).set(move.col(), CellStatus.BATTLESHIP_HIT);
-            break;
-            case CRUISER: layout.get(move.row()).set(move.col(), CellStatus.CRUISER_HIT);
-            break;
-            case DESTROYER: layout.get(move.row()).set(move.col(), CellStatus.DESTROYER_HIT);
-            break;
-            case SUB: layout.get(move.row()).set(move.col(), CellStatus.SUB_HIT);
-            break;
-            default: layout.get(move.row()).set(move.col(), CellStatus.NOTHING_HIT);
-            break;
+        if(moveAvailable(move)){
+            switch(cell){
+                case AIRCRAFT_CARRIER: layout.get(move.row()).set(move.col(), CellStatus.AIRCRAFT_CARRIER_HIT);
+                break;
+                case BATTLESHIP: layout.get(move.row()).set(move.col(), CellStatus.BATTLESHIP_HIT);
+                break;
+                case CRUISER: layout.get(move.row()).set(move.col(), CellStatus.CRUISER_HIT);
+                break;
+                case DESTROYER: layout.get(move.row()).set(move.col(), CellStatus.DESTROYER_HIT);
+                break;
+                case SUB: layout.get(move.row()).set(move.col(), CellStatus.SUB_HIT);
+                break;
+                default: layout.get(move.row()).set(move.col(), CellStatus.NOTHING_HIT);
+                break;
+            }
         }
         return cell;
     }

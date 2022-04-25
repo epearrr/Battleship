@@ -28,18 +28,24 @@ public class AAA {
         // System.out.println(m.row());
         // System.out.println(m);
 
-        Board b = new Board("UserBoard.txt");
+        // Board b = new Board("UserBoard.txt");
 
-        ArrayList<ArrayList<CellStatus>> layout = b.getLayout();
-        while(true){
-            // print board layout
-            for(ArrayList<CellStatus> s : layout){
-                System.out.println(s);
-            }
+        // ArrayList<ArrayList<CellStatus>> layout = b.getLayout();
+        // while(true){
+        //     // print board layout
+        //     for(ArrayList<CellStatus> s : layout){
+        //         System.out.println(s);
+        //     }
 
-            System.out.print("Cell: ");
-            String move = kb.nextLine();
-            System.out.println(b.applyMoveToLayout(new Move(move)));
-        }
+        //     System.out.print("Cell: ");
+        //     String move = kb.nextLine();
+        //     System.out.println(b.applyMoveToLayout(new Move(move)));
+        // }
+
+        ComputerBoard cb = new ComputerBoard("UserBoard.txt");
+
+        System.out.println(cb);
+        cb.applyMoveToLayout(new Move("E1"));
+        System.out.println(cb);
     }
 }
