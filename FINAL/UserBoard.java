@@ -98,4 +98,21 @@ public class UserBoard extends Board{
         // will return a move object from the string in the format of "B2", "E5", etc.
         return new Move(col+row);
     }
+
+    /**
+     * toString method that returns the board layout
+     * @return string of the board
+     */
+    @Override
+    public String toString(){
+        ArrayList<ArrayList<CellStatus>> layout = super.getLayout();
+        String userBoard = "";
+        for(ArrayList<CellStatus> row : layout){
+            for(CellStatus cell : row){
+                userBoard += cell.toString().charAt(0) + " ";
+            }
+            userBoard += "\n";
+        }
+        return userBoard;
+    }
 }

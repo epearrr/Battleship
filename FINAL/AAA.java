@@ -28,7 +28,7 @@ public class AAA {
         // System.out.println(m.row());
         // System.out.println(m);
 
-        // Board b = new Board("UserBoard.txt");
+        // Board b = new Board("userFleet.txt");
 
         // ArrayList<ArrayList<CellStatus>> layout = b.getLayout();
         // while(true){
@@ -42,7 +42,7 @@ public class AAA {
         //     System.out.println(b.applyMoveToLayout(new Move(move)));
         // }
 
-        // ComputerBoard cb = new ComputerBoard("ComputerBoard.txt");
+        // ComputerBoard cb = new ComputerBoard("compFleet.txt");
 
         // System.out.println(cb);
         // System.out.println(cb.makePlayerMove(new Move("A1")));
@@ -62,13 +62,12 @@ public class AAA {
         // System.out.println(cb.makePlayerMove(new Move("C3")));
         // System.out.println(cb);
 
-        UserBoard ub = new UserBoard("UserBoard.txt");
+        UserBoard ub = new UserBoard("userFleet.txt");
         
-        System.out.println(ub);
-        System.out.println(ub.makeComputerMove());
-        System.out.println(ub);
-        System.out.println(ub.makeComputerMove());
-        System.out.println(ub);
-        
+        while(!ub.gameOver()){
+            String[] compMove = ub.makeComputerMove();
+            System.out.println(compMove[0]);
+            System.out.println(ub);
+        }
     }
 }
