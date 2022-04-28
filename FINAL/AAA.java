@@ -42,7 +42,8 @@ public class AAA {
         //     System.out.println(b.applyMoveToLayout(new Move(move)));
         // }
 
-        ComputerBoard cb = new ComputerBoard("UserBoard.txt");
+        ComputerBoard cb = new ComputerBoard("ComputerBoard.txt");
+        UserBoard ub = new UserBoard("UserBoard.txt");
 
         System.out.println(cb);
         System.out.println(cb.makePlayerMove(new Move("A1")));

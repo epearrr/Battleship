@@ -1,69 +1,66 @@
 package FINAL;
 
+import java.util.Random;
 import java.util.ArrayList;
 
-public class ComputerBoard extends Board {
-    public ComputerBoard(String fileName){
+public class UserBoard extends Board{
+    private ArrayList<Move> moves;
+    private Random rand;
+
+    public UserBoard(String fileName){
         super(fileName);
+        rand = new Random();
     }
 
-    /**
-     * makes a move against the computer's board. if a ship is sunk, the layout values will be changes from _HIT to _SUNK.
-     * @param move
-     * @return
-     */
-    public String makePlayerMove(Move move){
+    public String[] makeComputerMove(){
+        Move move = generateRandomMove();
+
         CellStatus cell = super.applyMoveToLayout(move);
         Fleet fleet = super.getFleet();
 
+        String returnMessage;
         switch(cell){
             case AIRCRAFT_CARRIER: 
             if(fleet.updateFleet(ShipType.ST_AIRCRAFT_CARRIER)){
                 updateLayout(ShipType.ST_AIRCRAFT_CARRIER);
-                return "You sank my Aircraft Carrier!";
-            } return null;
+                returnMessage = "You sank my Aircraft Carrier!";
+            } returnMessage = null;
+            break;
             
             case BATTLESHIP: 
             if(fleet.updateFleet(ShipType.ST_BATTLESHIP)){
                 updateLayout(ShipType.ST_BATTLESHIP);
-                return "You sank my Battleship!";
-            } return null;
+                returnMessage = "You sank my Battleship!";
+            } returnMessage = null;
+            break;
             
             case CRUISER: 
             if(fleet.updateFleet(ShipType.ST_CRUISER)){
                 updateLayout(ShipType.ST_CRUISER);
-                return "You sank my Cruiser!";
-            } return null;
+                returnMessage = "You sank my Cruiser!";
+            } returnMessage = null;
+            break;
             
             case DESTROYER: 
             if(fleet.updateFleet(ShipType.ST_DESTROYER)){
                 updateLayout(ShipType.ST_DESTROYER);
-                return "You sank my Destroyer!";
-            } return null;
+                returnMessage = "You sank my Destroyer!";
+            } returnMessage = null;
+            break;
             
             case SUB: 
             if(fleet.updateFleet(ShipType.ST_SUB)){
                 updateLayout(ShipType.ST_SUB);
-                return "You sank my Sub!";
-            } return null;
+                returnMessage = "You sank my Sub!";
+            } returnMessage = null;
+            break;
             
-            default: return "Move not available!";
+            default: returnMessage = "Move not available!";
+            break;
         }
+        String[] rtn = {move.toString(), returnMessage};
+        return rtn;
     }
-
-    @Override
-    public String toString(){
-        ArrayList<ArrayList<CellStatus>> layout = super.getLayout();
-        String compBoard = "";
-        for(ArrayList<CellStatus> row : layout){
-            for(CellStatus cell : row){
-                compBoard += cell.toString().charAt(0) + " ";
-            }
-            compBoard += "\n";
-        }
-        return compBoard;
-    }
-
     /**
      * Changes the layout's _HIT values to _SUNK values
      * @param st ShipType
@@ -89,5 +86,16 @@ public class ComputerBoard extends Board {
                 }
             }
         }
+    }
+
+    private Move generateRandomMove(){
+        String[] columns = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
+        String[] rows = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+
+        String col = columns[rand.nextInt(10)];
+        String row = rows[rand.nextInt(10)];
+
+        // will return a move object from the string in the format of "B2", "E5", etc.
+        return new Move(col+row);
     }
 }
