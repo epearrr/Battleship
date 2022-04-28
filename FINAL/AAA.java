@@ -42,25 +42,33 @@ public class AAA {
         //     System.out.println(b.applyMoveToLayout(new Move(move)));
         // }
 
-        ComputerBoard cb = new ComputerBoard("ComputerBoard.txt");
-        UserBoard ub = new UserBoard("UserBoard.txt");
+        // ComputerBoard cb = new ComputerBoard("ComputerBoard.txt");
 
-        System.out.println(cb);
-        System.out.println(cb.makePlayerMove(new Move("A1")));
-        System.out.println(cb);
-        System.out.println(cb.makePlayerMove(new Move("A2")));
-        System.out.println(cb);
-        System.out.println(cb.makePlayerMove(new Move("A3")));
-        System.out.println(cb);
-        System.out.println(cb.makePlayerMove(new Move("A4")));
-        System.out.println(cb);
-        System.out.println(cb.makePlayerMove(new Move("A5")));
-        System.out.println(cb);
-        System.out.println(cb.makePlayerMove(new Move("C1")));
-        System.out.println(cb);
-        System.out.println(cb.makePlayerMove(new Move("C2")));
-        System.out.println(cb);
-        System.out.println(cb.makePlayerMove(new Move("C3")));
-        System.out.println(cb);
+        // System.out.println(cb);
+        // System.out.println(cb.makePlayerMove(new Move("A1")));
+        // System.out.println(cb);
+        // System.out.println(cb.makePlayerMove(new Move("A2")));
+        // System.out.println(cb);
+        // System.out.println(cb.makePlayerMove(new Move("A3")));
+        // System.out.println(cb);
+        // System.out.println(cb.makePlayerMove(new Move("A4")));
+        // System.out.println(cb);
+        // System.out.println(cb.makePlayerMove(new Move("A5")));
+        // System.out.println(cb);
+        // System.out.println(cb.makePlayerMove(new Move("C1")));
+        // System.out.println(cb);
+        // System.out.println(cb.makePlayerMove(new Move("C2")));
+        // System.out.println(cb);
+        // System.out.println(cb.makePlayerMove(new Move("C3")));
+        // System.out.println(cb);
+
+        UserBoard ub = new UserBoard("UserBoard.txt");
+        
+        System.out.println(ub);
+        System.out.println(ub.makeComputerMove());
+        System.out.println(ub);
+        System.out.println(ub.makeComputerMove());
+        System.out.println(ub);
+        
     }
 }

@@ -3,6 +3,10 @@ package FINAL;
 import java.util.ArrayList;
 
 public class ComputerBoard extends Board {
+    /**
+     * constructor that calls the superconstructor with the given fileName
+     * @param fileName
+     */
     public ComputerBoard(String fileName){
         super(fileName);
     }
@@ -51,6 +55,10 @@ public class ComputerBoard extends Board {
         }
     }
 
+    /**
+     * toString method that returns the board layout
+     * @return string of the board
+     */
     @Override
     public String toString(){
         ArrayList<ArrayList<CellStatus>> layout = super.getLayout();
