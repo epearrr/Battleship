@@ -7,17 +7,26 @@ public class UserBoard extends Board{
     private ArrayList<Move> moves;
     private Random rand;
 
+    /**
+     * constructor that calls superconstructor and initializes rand object
+     */
     public UserBoard(String fileName){
         super(fileName);
         rand = new Random();
     }
 
+    /**
+     * method makes a move against the user's board
+     * @return array of two strings: the move made by the computer ("E2", "A4", etc.) and a message displaying which ship had been sunk, if any
+     */
     public String[] makeComputerMove(){
+        // generates random move
         Move move = generateRandomMove();
 
         CellStatus cell = super.applyMoveToLayout(move);
         Fleet fleet = super.getFleet();
 
+        // 
         String returnMessage;
         switch(cell){
             case AIRCRAFT_CARRIER: 
@@ -88,15 +97,27 @@ public class UserBoard extends Board{
         }
     }
 
+    /**
+     * method that will generate a random move to be played by the computer
+     * @return move
+     */
     private Move generateRandomMove(){
         String[] columns = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
         String[] rows = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
-        String col = columns[rand.nextInt(10)];
-        String row = rows[rand.nextInt(10)];
-
+        // creates new move using a random column and row
+        Move move = new Move(columns[rand.nextInt(10)] + rows[rand.nextInt(10)]);
+       
+        if(moves != null){
+            // while loop to verify the move hasn't already been made
+            while(moves.contains(move)){
+                move = new Move(columns[rand.nextInt(10)] + rows[rand.nextInt(10)]);
+            }
+        }
+         
+        
         // will return a move object from the string in the format of "B2", "E5", etc.
-        return new Move(col+row);
+        return move;
     }
 
     /**
