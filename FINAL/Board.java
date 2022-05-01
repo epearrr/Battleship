@@ -13,7 +13,7 @@ public class Board {
      * Constructor that initialies the layout by setting all cells to CellStatus.NOTHING, gets information from a file and adds ships to the layout, and initializes fleet
      * @param fileName
      */
-    public Board(String fileName){
+    public Board(String fileName) throws InvalidMoveException{
         String fileLoc = "FINAL/" + fileName;
         layout = new ArrayList<>();
 

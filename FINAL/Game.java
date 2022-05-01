@@ -4,16 +4,16 @@ public class Game {
     private ComputerBoard computer;
     private UserBoard player;
 
-    public Game(){
+    public Game() throws InvalidMoveException{
         computer = new ComputerBoard("compFleet.txt");
         player = new UserBoard("userFleet.txt");
     }
 
-    public String[] makeComputerMove(){
+    public String[] makeComputerMove() throws InvalidMoveException{
         return player.makeComputerMove();
     }
 
-    public String makePlayerMove(String s){
+    public String makePlayerMove(String s) throws InvalidMoveException {
         return computer.makePlayerMove(new Move(s));
     }
 

@@ -18,10 +18,13 @@ public class Move {
      * constructor that creates a new move when given a string such as E2 as a parameter
      * @param s
      */
-    public Move(String s){
+    public Move(String s) throws InvalidMoveException{
         try{
             row = (int) s.charAt(0) - 65;
-            col = Integer.parseInt(s.substring(1)) - 1;  
+            col = Integer.parseInt(s.substring(1)) - 1; 
+            if(row > 10 || col > 10){
+                throw new InvalidMoveException("Invalid move! Make sure your move is no larger than J10.");
+            } 
         }
         catch(NumberFormatException e){
             System.out.println("NumberFormatException: s is " + s);

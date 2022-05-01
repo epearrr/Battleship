@@ -10,7 +10,7 @@ public class UserBoard extends Board{
     /**
      * constructor that calls superconstructor and initializes rand object
      */
-    public UserBoard(String fileName){
+    public UserBoard(String fileName) throws InvalidMoveException {
         super(fileName);
         rand = new Random();
     }
@@ -19,7 +19,7 @@ public class UserBoard extends Board{
      * method makes a move against the user's board
      * @return array of two strings: the move made by the computer ("E2", "A4", etc.) and a message displaying which ship had been sunk, if any
      */
-    public String[] makeComputerMove(){
+    public String[] makeComputerMove() throws InvalidMoveException {
         // generates random move
         Move move = generateRandomMove();
 
@@ -101,7 +101,7 @@ public class UserBoard extends Board{
      * method that will generate a random move to be played by the computer
      * @return move
      */
-    private Move generateRandomMove(){
+    private Move generateRandomMove() throws InvalidMoveException {
         String[] columns = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
         String[] rows = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 

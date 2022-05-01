@@ -7,7 +7,7 @@ public class ComputerBoard extends Board {
      * constructor that calls the superconstructor with the given fileName
      * @param fileName
      */
-    public ComputerBoard(String fileName){
+    public ComputerBoard(String fileName) throws InvalidMoveException {
         super(fileName);
     }
 
