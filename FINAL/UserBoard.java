@@ -127,10 +127,16 @@ public class UserBoard extends Board{
     @Override
     public String toString(){
         ArrayList<ArrayList<CellStatus>> layout = super.getLayout();
+        String[] letters = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
         String userBoard = "";
-        for(ArrayList<CellStatus> row : layout){
-            for(CellStatus cell : row){
-                userBoard += cell.toString().charAt(0) + " ";
+
+        userBoard += "USER\n";
+        userBoard += "   1  2  3  4  5  6  7  8  9  10\n";
+
+        for(int i = 0; i < Math.sqrt(SIZE); i++){
+            userBoard += letters[i] + "  ";
+            for(int j = 0; j < Math.sqrt(SIZE); j++){
+                userBoard += layout.get(i).get(j).toString().charAt(0) + "  ";
             }
             userBoard += "\n";
         }

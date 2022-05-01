@@ -9,9 +9,9 @@ public class Move {
      * @param col
      * @param row
      */
-    public Move(int col, int row){
-        this.col = col;
+    public Move(int row, int col){
         this.row = row;
+        this.col = col;
     }
 
     /**
@@ -20,8 +20,8 @@ public class Move {
      */
     public Move(String s){
         try{
-            col = (int) s.charAt(0) - 65;
-            row = Integer.parseInt(s.substring(1)) - 1;  
+            row = (int) s.charAt(0) - 65;
+            col = Integer.parseInt(s.substring(1)) - 1;  
         }
         catch(NumberFormatException e){
             System.out.println("NumberFormatException: s is " + s);
@@ -49,7 +49,7 @@ public class Move {
     @Override
     public String toString(){
         // use ASCII values to convert col from an int to a char
-        char c = (char) (col + 65);
-        return String.format("%c%d", c, row+1);
+        char r = (char) (row + 65);
+        return String.format("%c%d", r, col+1);
     }
 }

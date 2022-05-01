@@ -62,14 +62,20 @@ public class ComputerBoard extends Board {
     @Override
     public String toString(){
         ArrayList<ArrayList<CellStatus>> layout = super.getLayout();
-        String compBoard = "";
-        for(ArrayList<CellStatus> row : layout){
-            for(CellStatus cell : row){
-                compBoard += cell.toString().charAt(0) + " ";
+        String[] letters = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
+        String computerBoard = "";
+
+        computerBoard += "COMPUTER\n";
+        computerBoard += "   1  2  3  4  5  6  7  8  9  10\n";
+
+        for(int i = 0; i < Math.sqrt(SIZE); i++){
+            computerBoard += letters[i] + "  ";
+            for(int j = 0; j < Math.sqrt(SIZE); j++){
+                computerBoard += layout.get(i).get(j).toString().charAt(0) + "  ";
             }
-            compBoard += "\n";
+            computerBoard += "\n";
         }
-        return compBoard;
+        return computerBoard;
     }
 
     /**
