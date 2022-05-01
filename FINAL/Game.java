@@ -27,7 +27,6 @@ public class Game {
 
     @Override
     public String toString(){
-        String[] letters = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
-        String toReturn = "COMPUTER";
+        return String.format("%s\n%s", computer.toString(), player.toString());
     }
 }
