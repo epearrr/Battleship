@@ -1,5 +1,9 @@
 package FINAL;
 
+/**
+ * Class that contains the information for a move. The row and col variables are indecies of which row and column
+ * in the layout are targeted.
+ */
 public class Move {
     private int col;
     private int row;
@@ -22,7 +26,7 @@ public class Move {
         try{
             row = (int) s.charAt(0) - 65;
             col = Integer.parseInt(s.substring(1)) - 1; 
-            if(row > 10 || col > 10){
+            if(row > 9 || col > 9){
                 throw new InvalidMoveException("Invalid move! Make sure your move is no larger than J10.");
             } 
         }
