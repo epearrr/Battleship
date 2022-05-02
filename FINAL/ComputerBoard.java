@@ -2,6 +2,11 @@ package FINAL;
 
 import java.util.ArrayList;
 
+/**
+ * ComputerBoard is a Board. This class can be used to make a player move against this board. The toString method
+ * will return a string of the board for the user to view. Because the player does not know what the computer's
+ * board looks like, the board will initially appear full of "o"s.
+ */
 public class ComputerBoard extends Board {
     /**
      * constructor that calls the superconstructor with the given fileName

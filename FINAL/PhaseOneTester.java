@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Scanner;
 public class PhaseOneTester
 {
-   public static void main(String [] args) throws IOException
+   public static void main(String [] args) throws IOException, InvalidMoveException
    {
       // Test your Move class
       Move m = new Move(1,1);

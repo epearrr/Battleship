@@ -31,8 +31,7 @@ public class Move {
             } 
         }
         catch(NumberFormatException e){
-            System.out.println("NumberFormatException: s is " + s);
-            System.exit(1);
+            throw new InvalidMoveException("Invalid move! Make sure your move is no larger than J10.");
         }
     }
 

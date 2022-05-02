@@ -3,6 +3,11 @@ package FINAL;
 import java.util.Random;
 import java.util.ArrayList;
 
+/**
+ * UserBoard is a Board. This class can be used to make a computer move against this board. The toString method
+ * will return a string of the board for the user to view. Because the player knows what their own board looks like,
+ * the position of each of the player's ships will be visible on the board.
+ */
 public class UserBoard extends Board{
     private ArrayList<Move> moves;
     private Random rand;
@@ -26,7 +31,7 @@ public class UserBoard extends Board{
         CellStatus cell = super.applyMoveToLayout(move);
         Fleet fleet = super.getFleet();
 
-        // 
+        // switch statement checks what type of ship was sunk, if any
         String returnMessage;
         switch(cell){
             case AIRCRAFT_CARRIER: 
@@ -67,6 +72,7 @@ public class UserBoard extends Board{
             default: returnMessage = "Move not available!";
             break;
         }
+        // returns an array containing the move made by the computer and the message given by the above switch statement
         String[] rtn = {move.toString(), returnMessage};
         return rtn;
     }
@@ -76,6 +82,7 @@ public class UserBoard extends Board{
      */
     private void updateLayout(ShipType st){
         ArrayList<ArrayList<CellStatus>> layout = super.getLayout();
+        // for each row, go through each column and change the CellStatus from a _HIT value to a _SUNK value
         for(int i=0; i<Math.sqrt(SIZE); i++){
             for(int j=0; j<Math.sqrt(SIZE); j++){
                 if(st.equals(ShipType.ST_AIRCRAFT_CARRIER) && layout.get(i).get(j).equals(CellStatus.AIRCRAFT_CARRIER_HIT)){
@@ -133,10 +140,11 @@ public class UserBoard extends Board{
         userBoard += "USER\n";
         userBoard += "   1  2  3  4  5  6  7  8  9  10\n";
 
+        // generate the board, with each row stating with the appropriate letter
         for(int i = 0; i < Math.sqrt(SIZE); i++){
             userBoard += letters[i] + "  ";
             for(int j = 0; j < Math.sqrt(SIZE); j++){
-                userBoard += layout.get(i).get(j).toString().charAt(0) + "  ";
+                userBoard += layout.get(i).get(j).toString().charAt(1) + "  ";
             }
             userBoard += "\n";
         }

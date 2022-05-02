@@ -1,5 +1,9 @@
 package FINAL;
 
+/**
+ * The Fleet class contains 5 fields, one of each ship type. This class can be used to hit ships and determine
+ * whether or a not a game is over (all 5 ships have been sunk)
+ */
 public class Fleet {
     private Ship aircraftCarrier;
     private Ship battleship;

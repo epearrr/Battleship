@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
 
+/**
+ * Board class. Each Board layout is a matrix of CellStatus objects, which are all initially set to CellStatus.NOTHING. 
+ * The compFleet and userFleet files are used to place the ships from the fleets on each board. This class can be
+ * used to apply moves to the layout, check if a move is available, and check if the game is over (all ships in the
+ * fleet are sunk)
+ */
 public class Board {
     private ArrayList<ArrayList<CellStatus>> layout;
     private Fleet fleet;
